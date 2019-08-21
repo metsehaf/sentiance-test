@@ -12,14 +12,11 @@ const BACKEND_URL = environment.apiUrl + '/user';
 
 export class DataService {
 
-  // private customers: IAnalytics[] = [];
-
   constructor(private http: HttpClient) {}
 
   getUserData() {
-    return this.http.get<{message: string; }>(
+    return this.http.get<{message: string; userData: any }>(
         BACKEND_URL
       );
     }
-
   }
