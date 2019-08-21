@@ -1,8 +1,9 @@
-const http = require("http");
+const https = require("https");
 
+// return async function from fetching api to use in promise
 async function getData() {
   const url = "https://s3-eu-west-1.amazonaws.com/sentiance.solutions/datasets/public/user1.json";
-  const result = await http.get(url);
+  const result = await https.get(url);
 
   return result;
   console.dir(result);
