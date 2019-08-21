@@ -1,7 +1,9 @@
 const axios = require('axios');
 
+const url = process.env.SENTIANCE_URL;
+
 exports.getUserData = (req, res, next) => {
-  axios.get("https://s3-eu-west-1.amazonaws.com/sentiance.solutions/datasets/public/user1.json")
+  axios.get(url)
   .then(response => {
     console.log(response);
     res.status(200).json({
@@ -10,6 +12,8 @@ exports.getUserData = (req, res, next) => {
     })
   })
   .catch(error => {
-    console.log(error);
+    res.status(500).json({
+      message: `fetching User data failed! ${error}`
+    });
   });
 };
