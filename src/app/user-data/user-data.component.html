@@ -1,8 +1,13 @@
 <p>
   user-data works!
 </p>
-<ul *ngFor="let user of userData">
+<ul *ngFor="let moment of moment_history">
   <li>
-    {{user | json}}
+    {{moment | json}}
   </li>
 </ul>
+<ul *ngFor="let event of event_history">
+    <li>
+      {{event | json}}
+    </li>
+  </ul>

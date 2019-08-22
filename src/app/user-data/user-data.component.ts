@@ -8,14 +8,19 @@ import {Observable} from 'rxjs';
   styleUrls: ['./user-data.component.css']
 })
 export class UserDataComponent implements OnInit {
-  userData: any[] = [];
+  moment_history: any[] = [];
+  event_history: any[] = [];
 
   constructor(private data: DataService) { }
 
   ngOnInit() {
-    this.data.getUserData()
-    .subscribe(userData => {
-      this.userData = userData.userData;
+    this.data.getMomentData()
+    .subscribe(momentData => {
+      this.moment_history = momentData.moment_history;
+  });
+  this.data.getEventData()
+  .subscribe(eventData => {
+    this.event_history = eventData.event_history;
   });
   }
 }

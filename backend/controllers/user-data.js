@@ -8,8 +8,10 @@ exports.getUserData = (req, res, next) => {
     console.log(response);
     res.status(200).json({
       message: "success, fetching user data Succeeded",
-      userData: response.data.data.user.moment_history
+      moment_history: response.data.data.user.moment_history,
+      event_history: response.data.data.user.event_history
     })
+
   })
   .catch(error => {
     res.status(500).json({

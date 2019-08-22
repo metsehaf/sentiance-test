@@ -14,8 +14,14 @@ export class DataService {
 
   constructor(private http: HttpClient) {}
 
-  getUserData() {
-    return this.http.get<{message: string; userData: any }>(
+  getMomentData() {
+    return this.http.get<{message: string; moment_history: any}>(
+        BACKEND_URL
+      );
+    }
+
+  getEventData() {
+    return this.http.get<{message: string; event_history: any}>(
         BACKEND_URL
       );
     }
