@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService} from '../data.service';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-user-data',
@@ -8,14 +9,12 @@ import { DataService} from '../data.service';
 })
 export class UserDataComponent implements OnInit {
   userData: any[] = [];
-  isLoading = false;
 
   constructor(private data: DataService) { }
 
   ngOnInit() {
     this.data.getUserData()
     .subscribe(userData => {
-      this.isLoading = false;
       this.userData = userData.userData;
   });
   }
